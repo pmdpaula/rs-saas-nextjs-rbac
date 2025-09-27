@@ -9,7 +9,8 @@ Neste resumo, discutimos a importância de entender conceitos como SaaS (Softwar
 ## Tecnologias utilizadas
 
 - Next.js
-- TurboRepo
+- [TurboRepo](https://turborepo.com/docs/getting-started/installation)
+- [CASL](https://casl.js.org/) (Controle de Acesso)
 
 ## Estudo
 
