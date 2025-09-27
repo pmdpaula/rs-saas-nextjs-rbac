@@ -1,9 +1,8 @@
 import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 import tseslint from "typescript-eslint";
-import globals from "globals";
 import { config as baseConfig } from "./base.js";
-import { prettierConfig } from './prettier.js';
 
 /**
  * A custom ESLint configuration for libraries that use Node.js.
@@ -14,14 +13,14 @@ export const nodeJsConfig = [
   ...baseConfig,
   js.configs.recommended,
   eslintConfigPrettier,
-  prettierConfig,
   ...tseslint.configs.recommended,
   {
     plugins: {
-      "simple-import-sort": tseslint.plugins["simple-import-sort"],
+      "simple-import-sort": simpleImportSort,
     },
     rules: {
       "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
     },
   },
   {
@@ -33,6 +32,18 @@ export const nodeJsConfig = [
       ...pluginReactHooks.configs.recommended.rules,
       // React scope no longer necessary with new JSX transform.
       "react/react-in-jsx-scope": "off",
+    },
+  },
+  {
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
+    rules: {
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "import/first": "error",
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error",
     },
   },
 ];

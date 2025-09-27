@@ -1,8 +1,8 @@
 /** @typedef {import("prettier").Config} PrettierConfig */
 
 /** @type { PrettierConfig } */
-const prettierConfig = {
-  printWidth: 100,
+export const prettierConfig = {
+  printWidth: 80,
   tabWidth: 2,
   useTabs: false,
   semi: true,
@@ -16,5 +16,3 @@ const prettierConfig = {
   bracketSameLine: false,
   plugins: ["prettier-plugin-tailwindcss"],
 };
-
-export default prettierConfig;

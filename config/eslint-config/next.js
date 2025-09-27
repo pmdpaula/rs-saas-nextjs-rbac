@@ -5,8 +5,10 @@ import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginReact from "eslint-plugin-react";
 import globals from "globals";
 import pluginNext from "@next/eslint-plugin-next";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 import { config as baseConfig } from "./base.js";
-import { prettierConfig } from './prettier.js';
+import { prettierConfig } from "./prettier.js";
+
 
 /**
  * A custom ESLint configuration for libraries that use Next.js.
@@ -17,8 +19,8 @@ export const nextJsConfig = [
   ...baseConfig,
   js.configs.recommended,
   eslintConfigPrettier,
-  prettierConfig,
   ...tseslint.configs.recommended,
+  // prettierConfig,
   {
     ...pluginReact.configs.flat.recommended,
     languageOptions: {
@@ -35,14 +37,16 @@ export const nextJsConfig = [
     rules: {
       ...pluginNext.configs.recommended.rules,
       ...pluginNext.configs["core-web-vitals"].rules,
+      // "@typescript-eslint/no-unused-vars": "error",
     },
   },
   {
     plugins: {
-      "simple-import-sort": tseslint.plugins["simple-import-sort"],
+      "simple-import-sort": simpleImportSort,
     },
     rules: {
       "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
     },
   },
   {
@@ -56,4 +60,9 @@ export const nextJsConfig = [
       "react/react-in-jsx-scope": "off",
     },
   },
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": "error",
+    }
+  }
 ];
