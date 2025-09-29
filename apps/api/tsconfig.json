@@ -1,4 +1,18 @@
 {
   "extends": "@saas/ts-config/node.json",
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*",
+    "prisma/seed.ts"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+    }
+  }
 }
