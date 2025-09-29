@@ -6,7 +6,8 @@
   "files": [
     "library.json",
     "node.json",
-    "nextjs.json"
+    "nextjs.json",
+    "prettier.json"
   ],
   "publishConfig": {
     "access": "public"
