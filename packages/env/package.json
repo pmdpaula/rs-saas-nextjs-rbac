@@ -1,0 +1,26 @@
+{
+  "name": "@saas/env",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@saas/eslint-config": "workspace:*",
+    "@saas/ts-config": "workspace:*",
+    "@types/node": "^24.5.2",
+    "typescript": "latest"
+  },
+  "eslint": {
+    "extends": [
+      "@saas/eslint-config/library"
+    ]
+  },
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.13.8",
+    "zod": "^4.1.11"
+  }
+}
