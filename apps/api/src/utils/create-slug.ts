@@ -1,10 +1,9 @@
-export function createSlug(name: string) {
-  name
-    .normalize("NFKD")
+export function createSlug(text: string): string {
+  return text
+    .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-
-  return name;
+    .replace(/[^\w\s]/gi, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .toLowerCase();
 }
