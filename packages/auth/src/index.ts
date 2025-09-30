@@ -12,6 +12,7 @@ import { userSubjectSchema } from "./subjects/user";
 export * from "./models/organization";
 export * from "./models/project";
 export * from "./models/user";
+export * from "./roles";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const appAbilitiesSchema = z.union([
@@ -43,6 +44,9 @@ export function defineAbilityFor(user: User) {
       return subject.__typename;
     },
   });
+
+  ability.can = ability.can.bind(ability);
+  ability.cannot = ability.cannot.bind(ability);
 
   return ability;
 }
