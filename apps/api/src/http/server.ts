@@ -13,6 +13,12 @@ import {
 
 import { errorHandler } from "./error-handler";
 import { createOrganization } from "./orgs/create-organization";
+import { getMembership } from "./orgs/get-membership";
+import { getOrganization } from "./orgs/get-organization";
+import { getOrganizations } from "./orgs/get-organizations";
+import { shutdownOrganization } from "./orgs/shutdown-organization";
+import { transferOrganization } from "./orgs/transfer-organization";
+import { updateOrganization } from "./orgs/update-organization";
 import { authenticateWithGithub } from "./routes/auth/authenticate-wit-github";
 import { authenticateWithPassword } from "./routes/auth/authenticate-with-password";
 import { createAccount } from "./routes/auth/create-account";
@@ -68,6 +74,12 @@ app.register(requestPasswordRecover);
 app.register(resetPassword);
 
 app.register(createOrganization);
+app.register(getMembership);
+app.register(getOrganizations);
+app.register(getOrganization);
+app.register(updateOrganization);
+app.register(shutdownOrganization);
+app.register(transferOrganization);
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log(`HTTP server running on http://localhost:${env.SERVER_PORT}`);
