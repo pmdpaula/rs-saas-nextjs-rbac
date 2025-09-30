@@ -12,6 +12,7 @@ import {
 } from "fastify-type-provider-zod";
 
 import { errorHandler } from "./error-handler";
+import { createOrganization } from "./orgs/create-organization";
 import { authenticateWithGithub } from "./routes/auth/authenticate-wit-github";
 import { authenticateWithPassword } from "./routes/auth/authenticate-with-password";
 import { createAccount } from "./routes/auth/create-account";
@@ -66,10 +67,7 @@ app.register(getProfile);
 app.register(requestPasswordRecover);
 app.register(resetPassword);
 
-app.register(createAccount)
-
-app.listen({ port: 3333 }).then(() => {
-  console.log('HTTP server running on http://localhost:3333');
+app.register(createOrganization);
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log(`HTTP server running on http://localhost:${env.SERVER_PORT}`);
