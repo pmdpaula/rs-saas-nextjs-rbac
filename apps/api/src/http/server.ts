@@ -19,6 +19,8 @@ import { getOrganizations } from "./orgs/get-organizations";
 import { shutdownOrganization } from "./orgs/shutdown-organization";
 import { transferOrganization } from "./orgs/transfer-organization";
 import { updateOrganization } from "./orgs/update-organization";
+import { createProject } from "./projects/create-projects";
+import { deleteProject } from "./projects/delete-projects";
 import { authenticateWithGithub } from "./routes/auth/authenticate-wit-github";
 import { authenticateWithPassword } from "./routes/auth/authenticate-with-password";
 import { createAccount } from "./routes/auth/create-account";
@@ -80,6 +82,9 @@ app.register(getOrganization);
 app.register(updateOrganization);
 app.register(shutdownOrganization);
 app.register(transferOrganization);
+
+app.register(createProject);
+app.register(deleteProject);
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log(`HTTP server running on http://localhost:${env.SERVER_PORT}`);
