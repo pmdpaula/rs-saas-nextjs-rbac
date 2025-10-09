@@ -7,7 +7,6 @@
     "./base": "./base.js",
     "./next": "./next.js",
     "./node": "./node.js",
-    "./prettier": "./prettier.js",
     "./react-internal": "./react-internal.js"
   },
   "devDependencies": {

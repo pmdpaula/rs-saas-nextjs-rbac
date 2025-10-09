@@ -7,7 +7,7 @@ import globals from "globals";
 import pluginNext from "@next/eslint-plugin-next";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import { config as baseConfig } from "./base.js";
-import { prettierConfig } from "./prettier.js";
+// import { prettierConfig } from "./prettier.js";
 
 
 /**
