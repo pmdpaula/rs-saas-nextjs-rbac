@@ -12,6 +12,13 @@ import {
 } from "fastify-type-provider-zod";
 
 import { errorHandler } from "./error-handler";
+import { acceptInvite } from "./invites/accept-invite";
+import { createInvite } from "./invites/create-invite";
+import { getInvite } from "./invites/get-invite";
+import { getInvites } from "./invites/get-invites";
+import { getPendingInvites } from "./invites/get-pending-invites";
+import { rejectInvite } from "./invites/reject-invite";
+import { revokeInvite } from "./invites/revoke-invite";
 import { removeMember } from "./members/delete-member";
 import { getMembers } from "./members/get-members";
 import { updateMember } from "./members/update-member";
@@ -98,6 +105,14 @@ app.register(updateProject);
 app.register(getMembers);
 app.register(updateMember);
 app.register(removeMember);
+
+app.register(createInvite);
+app.register(getInvite);
+app.register(getInvites);
+app.register(acceptInvite);
+app.register(rejectInvite);
+app.register(revokeInvite);
+app.register(getPendingInvites);
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log(`HTTP server running on http://localhost:${env.SERVER_PORT}`);
