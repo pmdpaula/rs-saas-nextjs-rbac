@@ -11,6 +11,7 @@ import {
   ZodTypeProvider,
 } from "fastify-type-provider-zod";
 
+import { getOrganizationBilling } from "./billing/get-organization-billing";
 import { errorHandler } from "./error-handler";
 import { acceptInvite } from "./invites/accept-invite";
 import { createInvite } from "./invites/create-invite";
@@ -113,6 +114,8 @@ app.register(acceptInvite);
 app.register(rejectInvite);
 app.register(revokeInvite);
 app.register(getPendingInvites);
+
+app.register(getOrganizationBilling);
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log(`HTTP server running on http://localhost:${env.SERVER_PORT}`);
