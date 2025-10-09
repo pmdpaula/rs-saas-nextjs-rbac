@@ -12,6 +12,9 @@ import {
 } from "fastify-type-provider-zod";
 
 import { errorHandler } from "./error-handler";
+import { removeMember } from "./members/delete-member";
+import { getMembers } from "./members/get-members";
+import { updateMember } from "./members/update-member";
 import { createOrganization } from "./orgs/create-organization";
 import { getMembership } from "./orgs/get-membership";
 import { getOrganization } from "./orgs/get-organization";
@@ -91,6 +94,10 @@ app.register(deleteProject);
 app.register(getProject);
 app.register(getProjects);
 app.register(updateProject);
+
+app.register(getMembers);
+app.register(updateMember);
+app.register(removeMember);
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log(`HTTP server running on http://localhost:${env.SERVER_PORT}`);
