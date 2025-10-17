@@ -1,7 +1,9 @@
-import Image from "next/image";
+import { auth } from "@/auth/auth";
 
-import { Button } from "@/components/ui/button";
+const Home = async () => {
+  const user = await auth();
+  console.log("🚀 ~ Home ~ user:", user);
+  // return <pre>{JSON.stringify(user, null, 2)}</pre>;
+};
 
-export default function Home() {
-  return <Button>Começando</Button>;
-}
+export default Home;

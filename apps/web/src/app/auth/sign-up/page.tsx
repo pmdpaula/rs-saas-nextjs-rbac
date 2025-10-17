@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 
-const SignInPage = () => {
+const SignUpPage = () => {
   return (
     <form action="" className="space-y-4">
       <div className="space-y-4">
@@ -56,4 +56,4 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default SignUpPage;
