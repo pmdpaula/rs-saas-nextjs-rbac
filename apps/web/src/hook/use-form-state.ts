@@ -1,5 +1,5 @@
 import { type FormEvent, useState, useTransition } from "react";
-import { requestFormReset } from "react-dom";
+// import { requestFormReset } from "react-dom";
 
 // interface FormState {
 //   success: boolean;
@@ -12,12 +12,22 @@ type FormState =
       message: string | string[] | null;
       errors:
         | {
+            name?:
+              | {
+                  errors: string[];
+                }
+              | undefined;
             email?:
               | {
                   errors: string[];
                 }
               | undefined;
             password?:
+              | {
+                  errors: string[];
+                }
+              | undefined;
+            password_confirmation?:
               | {
                   errors: string[];
                 }
@@ -62,9 +72,9 @@ export function useFormState(
       setFormState(state);
     });
 
-    startTransition(async () => {
-      requestFormReset(form);
-    });
+    // startTransition(async () => {
+    //   requestFormReset(form);
+    // });
   }
 
   return [formState, handleSubmit, isPending] as const;
