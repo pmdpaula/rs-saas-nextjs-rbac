@@ -32,6 +32,16 @@ type FormState =
                   errors: string[];
                 }
               | undefined;
+            domain?:
+              | {
+                  errors: string[];
+                }
+              | undefined;
+            shouldAttachUserByDomain?:
+              | {
+                  errors: string[];
+                }
+              | undefined;
           }
         | undefined;
     }
