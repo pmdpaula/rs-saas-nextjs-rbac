@@ -2,7 +2,7 @@ import { Header } from "@/components/header";
 
 import { OrganizationForm } from "./organization-form";
 
-const CreateOrganizationPage = () => {
+const CreateOrganization = () => {
   return (
     <div className="py-4 space-y-4">
       <Header />
@@ -14,4 +14,4 @@ const CreateOrganizationPage = () => {
   );
 };
 
-export default CreateOrganizationPage;
+export default CreateOrganization;
