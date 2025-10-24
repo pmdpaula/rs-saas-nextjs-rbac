@@ -136,7 +136,7 @@ async function seed() {
     data: {
       name: "Acme Inc. (Billing)",
       slug: "acme-inc-billing",
-      avatarUrl: faker.image.urlLoremFlickr({ category: "business" }),
+      avatarUrl: faker.image.avatarGitHub(),
       ownerId: user1.id,
       projects: {
         createMany: {
