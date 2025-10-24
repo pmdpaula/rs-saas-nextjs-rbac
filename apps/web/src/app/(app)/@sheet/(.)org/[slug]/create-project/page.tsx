@@ -1,22 +1,21 @@
+import { ProjectForm } from "@/app/(app)/org/[slug]/create-project/project-form";
 import { InterceptedSheetContent } from "@/components/intercepted-sheet-content";
 import { Sheet, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
-import { OrganizationForm } from "../../org/organization-form";
-
-const CreateOrganization = () => {
+const CreateProject = () => {
   return (
     <Sheet defaultOpen>
       <InterceptedSheetContent side="right">
         <SheetHeader>
-          <SheetTitle>Criar uma Organização</SheetTitle>
+          <SheetTitle>Criar um Projeto</SheetTitle>
         </SheetHeader>
 
         <div className="py-4">
-          <OrganizationForm />
+          <ProjectForm />
         </div>
       </InterceptedSheetContent>
     </Sheet>
   );
 };
 
-export default CreateOrganization;
+export default CreateProject;

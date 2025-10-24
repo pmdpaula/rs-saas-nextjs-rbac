@@ -42,6 +42,11 @@ type FormState =
                   errors: string[];
                 }
               | undefined;
+            description?:
+              | {
+                  errors: string[];
+                }
+              | undefined;
           }
         | undefined;
     }

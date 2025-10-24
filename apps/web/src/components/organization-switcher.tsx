@@ -1,4 +1,5 @@
 import { ChevronsUpDown, PlusCircle } from "lucide-react";
+import Link from "next/link";
 
 import { getCurrentOrganization } from "@/auth/auth";
 import { getOrganizations } from "@/http/get-organizations";
@@ -27,7 +28,7 @@ export const OrganizationSwitcher = async () => {
       <DropdownMenuTrigger className="flex w-[210px] items-center gap-2 rounded p-1 text-small font-medium outline-none focus-visivble:ring-2 focus-visible:ring-primary">
         {currentOrganization ? (
           <>
-            <Avatar className="mr-2 size-4">
+            <Avatar className="size-4">
               {currentOrganization.avatarUrl && (
                 <AvatarImage src={currentOrganization.avatarUrl} />
               )}
@@ -67,10 +68,10 @@ export const OrganizationSwitcher = async () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem asChild>
-          <a href="/create-organization">
+          <Link href="/create-organization">
             <PlusCircle className="size-4 mr-2" />
             Criar nova organização
-          </a>
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

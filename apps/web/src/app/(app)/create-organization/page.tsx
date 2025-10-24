@@ -1,6 +1,6 @@
 import { Header } from "@/components/header";
 
-import { OrganizationForm } from "./organization-form";
+import { OrganizationForm } from "../org/organization-form";
 
 const CreateOrganization = () => {
   return (
