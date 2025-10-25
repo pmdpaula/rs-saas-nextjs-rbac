@@ -9,6 +9,7 @@ import {
 import { getOrganization } from "@/http/get-organization";
 
 import { OrganizationForm } from "../../organization-form";
+import { Billing } from "./billing";
 import { ShutdownOrganizationButton } from "./shutdown-organization-button";
 
 const Settings = async () => {
@@ -61,7 +62,7 @@ const Settings = async () => {
             </CardHeader>
 
             <CardContent>
-              <p>Conteúdo da configuração de cobrança.</p>
+              <Billing />
             </CardContent>
           </Card>
         )}
