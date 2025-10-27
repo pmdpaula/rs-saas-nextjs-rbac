@@ -43,16 +43,16 @@ export const createInvite = async (app: FastifyInstance) => {
         const { cannot } = await getUserPermissions(userId, membership.role);
 
         if (cannot("create", "Invite")) {
-          throw new UnauthorizedError("You do not have permission to create invites.");
+          throw new UnauthorizedError("Você não tem permissão para criar convites.");
         }
 
         const { email, role } = request.body;
 
-        const [, domain] = email;
+        const [, domain] = email.split("@");
 
         if (organization.shouldAttachUsersByDomain && domain === organization.domain) {
           throw new BadRequestError(
-            `User with "${domain}" domain can join the organization by themself.`
+            `Usuários com domínio "${domain}" podem se juntar à organização por conta própria.`
           );
         }
 
@@ -66,7 +66,7 @@ export const createInvite = async (app: FastifyInstance) => {
         });
 
         if (existingInvite) {
-          throw new BadRequestError(`An invite has already been sent to ${email}.`);
+          throw new BadRequestError(`Um convite já foi enviado para ${email}.`);
         }
 
         const memberWithSameEmail = await prisma.member.findFirst({
@@ -79,7 +79,7 @@ export const createInvite = async (app: FastifyInstance) => {
         });
 
         if (memberWithSameEmail) {
-          throw new BadRequestError(`${email} is already a member of the organization.`);
+          throw new BadRequestError(`${email} já é um membro da organização.`);
         }
 
         const invite = await prisma.invite.create({
