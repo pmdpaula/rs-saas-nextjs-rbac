@@ -11,6 +11,7 @@ import { getMembership } from "@/http/get-membership";
 import { getOrganization } from "@/http/get-organization";
 
 import { removeMemberAction } from "./actions";
+import { UpdateMemberRoleSelect } from "./update-member-role-select";
 
 export const MembersList = async () => {
   const currentOrg = (await getCurrentOrganization())!;
@@ -78,6 +79,19 @@ export const MembersList = async () => {
                           Transferir propriedade
                         </Button>
                       )}
+
+                      <UpdateMemberRoleSelect
+                        memberId={member.id}
+                        value={member.role}
+                        disabled={
+                          member.userId === membership.userId ||
+                          member.userId === organization.ownerId ||
+                          permissions?.cannot("update", "User")
+                        }
+                        // onValueChange={(value) => {
+                        //   // Handle role change
+                        // }}
+                      />
 
                       {permissions?.can("delete", "User") && (
                         <form action={removeMemberAction.bind(null, member.id)}>
