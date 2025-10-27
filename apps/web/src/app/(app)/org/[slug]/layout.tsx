@@ -11,7 +11,9 @@ export default async function OrgLayout({
       <Header />
       <Tabs />
 
-      <main className="mx-auto w-full max-w-[1200px] py-4">{children}</main>
+      <main className="mx-auto w-full max-w-[1200px] py-4 px-1">
+        {children}
+      </main>
     </div>
   );
 }
