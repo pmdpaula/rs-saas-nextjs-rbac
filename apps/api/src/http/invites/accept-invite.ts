@@ -16,7 +16,7 @@ export const acceptInvite = async (app: FastifyInstance) => {
       {
         schema: {
           tags: ["invites"],
-          summary: "Get an invite",
+          summary: "Accept an invite",
           params: z.object({
             inviteId: z.cuid(),
           }),
@@ -49,19 +49,21 @@ export const acceptInvite = async (app: FastifyInstance) => {
           throw new BadRequestError("This invite is not for your email.");
         }
 
-        await prisma.$transaction(async () => {
+        await prisma.$transaction([
           prisma.member.create({
             data: {
               userId,
               organizationId: invite.organizationId,
               role: invite.role,
             },
-          });
+          }),
 
           prisma.invite.delete({
-            where: { id: inviteId },
-          });
-        });
+            where: {
+              id: invite.id,
+            },
+          }),
+        ]);
 
         return reply.status(204).send();
       }

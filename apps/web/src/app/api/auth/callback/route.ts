@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { type NextRequest, NextResponse } from "next/server";
 
+import { acceptInvite } from "@/http/accept-invite";
 import { signInWithGitHub } from "@/http/sign-in-with-github";
 
 export async function GET(request: NextRequest) {
@@ -20,6 +21,16 @@ export async function GET(request: NextRequest) {
     // sameSite: "lax",
     // secure: process.env.NODE_ENV === "production",
   });
+
+  const inviteId = (await cookies()).get("inviteId")?.value;
+
+  if (inviteId) {
+    try {
+      await acceptInvite(inviteId);
+      (await cookies()).delete("inviteId");
+      // eslint-disable-next-line no-empty
+    } catch {}
+  }
 
   const redirectUrl = request.nextUrl.clone();
   redirectUrl.pathname = "/";
