@@ -10,7 +10,8 @@
     "db:studio": "pnpm env:load prisma studio",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "tsup"
+    "build": "tsup",
+    "start": "node dist/http/server.js"
   },
   "dependencies": {
     "@fastify/cors": "^11.1.0",
