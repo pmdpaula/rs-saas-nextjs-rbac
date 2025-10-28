@@ -3,11 +3,11 @@ import { z } from "zod";
 
 import { User } from "./models/user";
 import { permissions } from "./permissions";
-import { billingSubjectSchema } from "./subjects/billing";
-import { inviteSubjectSchema } from "./subjects/invite";
-import { organizationSubjectSchema } from "./subjects/organization";
-import { projectSubjectSchema } from "./subjects/project";
-import { userSubjectSchema } from "./subjects/user";
+import { billingSubject } from "./subjects/billing";
+import { inviteSubject } from "./subjects/invite";
+import { organizationSubject } from "./subjects/organization";
+import { projectSubject } from "./subjects/project";
+import { userSubject } from "./subjects/user";
 
 export * from "./models/organization";
 export * from "./models/project";
@@ -16,11 +16,11 @@ export * from "./roles";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const appAbilitiesSchema = z.union([
-  billingSubjectSchema,
-  inviteSubjectSchema,
-  organizationSubjectSchema,
-  projectSubjectSchema,
-  userSubjectSchema,
+  projectSubject,
+  userSubject,
+  organizationSubject,
+  inviteSubject,
+  billingSubject,
   z.tuple([z.literal("manage"), z.literal("all")]),
 ]);
 

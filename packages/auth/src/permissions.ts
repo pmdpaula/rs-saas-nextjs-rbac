@@ -13,7 +13,9 @@ export const permissions: Record<Role, PermissionsByRole> = {
     // pois a ferramenta não consegue trabalhar desta forma.
     // Então temos que negar tudo e depois permitir o que queremos.
     cannot(["transfer_ownership", "update"], "Organization");
-    can(["transfer_ownership", "update"], "Organization", { ownerId: { $eq: user.id } });
+    can(["transfer_ownership", "update"], "Organization", {
+      ownerId: { $eq: user.id },
+    });
   },
   MEMBER(user, { can }) {
     can("get", "User");
