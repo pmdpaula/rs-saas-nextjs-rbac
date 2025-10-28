@@ -16,12 +16,11 @@ export * from "./roles";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const appAbilitiesSchema = z.union([
-  userSubjectSchema,
-  projectSubjectSchema,
   billingSubjectSchema,
   inviteSubjectSchema,
   organizationSubjectSchema,
-
+  projectSubjectSchema,
+  userSubjectSchema,
   z.tuple([z.literal("manage"), z.literal("all")]),
 ]);
 
@@ -34,13 +33,13 @@ export function defineAbilityFor(user: User) {
   const builder = new AbilityBuilder(createAppAbility);
 
   if (typeof permissions[user.role] !== "function") {
-    throw new Error(`Permissions for role ${user.role} not found`);
+    throw new Error(`Permissions for role ${user.role} not found.`);
   }
 
   permissions[user.role](user, builder);
 
   const ability = builder.build({
-    detectSubjectType: (subject) => {
+    detectSubjectType(subject) {
       return subject.__typename;
     },
   });
