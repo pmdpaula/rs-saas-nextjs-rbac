@@ -1,4 +1,5 @@
 import { z } from "zod";
+
 import { organizationSchema } from "../models/organization";
 
 export const organizationSubjectSchema = z.tuple([
