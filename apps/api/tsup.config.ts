@@ -6,5 +6,5 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   outDir: "dist",
-  noExternal: ["@saas-auth", "@saas/env"],
+  noExternal: ["@saas/auth", "@saas/env"],
 });
