@@ -6,7 +6,7 @@ export const env = createEnv({
     PORT: z.coerce.number().default(3333),
 
     DATABASE_URL: z.url(),
-    DATABASE_API_KEY: z.string().min(64),
+    DATABASE_API_KEY: z.string().min(64).optional(),
 
     JWT_SECRET: z.string().min(32),
     JWT_EXPIRES_IN: z.string().default("15m"),
