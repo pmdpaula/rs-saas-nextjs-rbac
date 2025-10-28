@@ -4,8 +4,8 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
 import { config as baseConfig } from "./base.js";
-import globals from "globals";
-import { prettierConfig } from "./prettier.js";
+// import globals from "globals";
+// import { prettierConfig } from "./prettier.js";
 
 /**
  * A custom ESLint configuration for libraries that use Node.js.
@@ -25,6 +25,7 @@ export const nodeJsConfig = [
     rules: {
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
+      "no-html-link-for-pages": "off",
     },
   },
   {
